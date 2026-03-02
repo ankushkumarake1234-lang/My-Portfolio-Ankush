@@ -79,10 +79,10 @@ const HeroSection = () => {
             <a href="#projects" className="glow-button flex items-center gap-2 text-primary-foreground">
               <Eye size={18} /> View Projects
             </a>
-            <a href="#contact" className="glow-button-outline flex items-center gap-2">
+            <a href="https://wa.me/919508594092?text=Hi%20Ankush,%20I'm%20interested%20in%20hiring%20you%20for%20a%20project!" target="_blank" rel="noopener noreferrer" className="glow-button-outline flex items-center gap-2">
               Hire Me
             </a>
-            <a href="#" className="glow-button-outline flex items-center gap-2">
+            <a href="#education" className="glow-button-outline flex items-center gap-2">
               <Download size={18} /> Resume
             </a>
           </motion.div>

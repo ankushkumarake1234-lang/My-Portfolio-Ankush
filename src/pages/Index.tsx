@@ -9,6 +9,7 @@ import EducationSection from "@/components/EducationSection";
 import ServicesSection from "@/components/ServicesSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <ServicesSection />
       <ContactSection />
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };

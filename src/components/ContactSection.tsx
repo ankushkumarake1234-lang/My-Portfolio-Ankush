@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, Linkedin, Github, Send } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send, MessageCircle } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -9,8 +9,9 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailto = `mailto:ankhushkumarake123456@gmail.com?subject=Portfolio Contact from ${form.name}&body=${form.message}%0A%0AFrom: ${form.email}`;
-    window.open(mailto);
+    const text = `Hi Ankush,\n\nMy name is ${form.name}.\nEmail: ${form.email}\n\nMessage: \n${form.message}`;
+    const whatsappUrl = `https://wa.me/919508594092?text=${encodeURIComponent(text)}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   return (
@@ -81,27 +82,27 @@ const ContactSection = () => {
             className="space-y-6"
           >
             <div className="glass p-6 space-y-5">
-              <a href="mailto:ankhushkumarake123456@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="mailto:ankushkumarake123456@gmail.com" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Mail className="text-primary" size={18} />
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Email</p>
-                  <p className="text-sm font-medium text-foreground">ankhushkumarake123456@gmail.com</p>
+                  <p className="text-sm font-medium text-foreground">ankushkumarake123456@gmail.com</p>
                 </div>
               </a>
 
-              <a href="tel:9508594092" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Phone className="text-primary" size={18} />
+              <a href="https://wa.me/919508594092" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
+                <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                  <MessageCircle className="text-green-500" size={18} />
                 </div>
                 <div>
-                  <p className="text-xs text-muted-foreground">Phone</p>
+                  <p className="text-xs text-muted-foreground">WhatsApp / Phone</p>
                   <p className="text-sm font-medium text-foreground">+91 9508594092</p>
                 </div>
               </a>
 
-              <a href="https://linkedin.com/in/ankush-kumar-60333537b" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
+              <a href="https://www.linkedin.com/in/ankush-kumar-60333537b/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors">
                 <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                   <Linkedin className="text-primary" size={18} />
                 </div>

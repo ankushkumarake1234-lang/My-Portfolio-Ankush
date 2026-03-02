@@ -55,7 +55,7 @@ const ServicesSection = () => {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="text-center"
         >
-          <a href="#contact" className="glow-button text-primary-foreground inline-flex items-center gap-2 text-lg">
+          <a href="https://wa.me/919508594092?text=Hi%20Ankush,%20I%20would%20like%20to%20book%20a%2015-minute%20consultation." target="_blank" rel="noopener noreferrer" className="glow-button text-primary-foreground inline-flex items-center gap-2 text-lg">
             Book a Free 15-Minute Consultation
           </a>
         </motion.div>

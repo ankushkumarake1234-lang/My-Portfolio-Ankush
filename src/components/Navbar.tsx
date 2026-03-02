@@ -7,6 +7,8 @@ const navLinks = [
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Achievements", href: "#achievements" },
+  { label: "Certs", href: "#certifications" },
+  { label: "Education", href: "#education" },
   { label: "Services", href: "#services" },
   { label: "Contact", href: "#contact" },
 ];
@@ -26,17 +28,16 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-strong shadow-lg" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-strong shadow-lg" : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="font-display text-xl font-bold gradient-text">
-          AK
+          Ankush Kumar
         </a>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -46,7 +47,7 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a href="#contact" className="glow-button text-sm text-primary-foreground">
+          <a href="https://wa.me/919508594092?text=Hi%20Ankush,%20I'm%20interested%20in%20hiring%20you%20for%20a%20project!" target="_blank" rel="noopener noreferrer" className="glow-button text-sm text-primary-foreground">
             Hire Me
           </a>
         </div>
@@ -54,7 +55,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
+          className="lg:hidden text-foreground"
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -67,7 +68,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-strong overflow-hidden"
+            className="lg:hidden glass-strong overflow-hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link) => (
@@ -80,7 +81,7 @@ const Navbar = () => {
                   {link.label}
                 </a>
               ))}
-              <a href="#contact" className="glow-button text-center text-primary-foreground mt-2">
+              <a href="https://wa.me/919508594092?text=Hi%20Ankush,%20I'm%20interested%20in%20hiring%20you%20for%20a%20project!" target="_blank" rel="noopener noreferrer" className="glow-button text-center text-primary-foreground mt-2">
                 Hire Me
               </a>
             </div>

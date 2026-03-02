@@ -11,10 +11,10 @@ const Footer = () => {
           <a href="https://github.com/ankushkumarake1234-lang" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
             <Github size={18} />
           </a>
-          <a href="https://linkedin.com/in/ankush-kumar-60333537b" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="https://www.linkedin.com/in/ankush-kumar-60333537b/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
             <Linkedin size={18} />
           </a>
-          <a href="mailto:ankhushkumarake123456@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+          <a href="mailto:ankushkumarake123456@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
             <Mail size={18} />
           </a>
         </div>

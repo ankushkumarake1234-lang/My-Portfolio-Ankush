@@ -25,7 +25,7 @@ const EducationSection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="section-padding relative" ref={ref}>
+    <section id="education" className="section-padding relative" ref={ref}>
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
