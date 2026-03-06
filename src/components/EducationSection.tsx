@@ -6,7 +6,7 @@ const education = [
   {
     school: "Vedam School of Technology",
     degree: "B.Tech Computer Science with AI Specialization",
-    year: "2024 – 2029",
+    year: "2025 – 2029",
   },
   {
     school: "A.N College, Patna",
