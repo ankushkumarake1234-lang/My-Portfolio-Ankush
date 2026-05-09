@@ -11,6 +11,8 @@ const projects = [
     tech: ["React", "Firebase", "OpenAI API"],
     result: "Saves students 2+ hours daily.",
     color: "from-primary to-accent",
+    githubUrl: "https://github.com/ankushkumarake1234-lang/ask-my-notes",
+    demoUrl: "#",
   },
   {
     title: "AI Resume Builder",
@@ -20,6 +22,8 @@ const projects = [
     tech: ["React", "Node.js"],
     result: "Professional resumes generated in under 5 minutes.",
     color: "from-secondary to-primary",
+    githubUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "AI Study Assistant",
@@ -29,6 +33,8 @@ const projects = [
     tech: ["React", "Firebase", "AI/ML"],
     result: "Personalized learning for every student.",
     color: "from-accent to-secondary",
+    githubUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "Portfolio Builder",
@@ -38,6 +44,8 @@ const projects = [
     tech: ["React", "CSS3", "Firebase"],
     result: "Professional portfolios created in minutes.",
     color: "from-primary to-secondary",
+    githubUrl: "#",
+    demoUrl: "#",
   },
   {
     title: "Background Remover",
@@ -47,6 +55,8 @@ const projects = [
     tech: ["React", "AI API", "Canvas"],
     result: "Clean images in seconds, not hours.",
     color: "from-secondary to-accent",
+    githubUrl: "#",
+    demoUrl: "#",
   },
 ];
 
@@ -120,12 +130,25 @@ const ProjectsSection = () => {
                       ))}
                     </div>
                     <div className="flex gap-3">
-                      <button className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                        <Github size={16} /> Code
-                      </button>
-                      <button className="flex items-center gap-1.5 text-sm text-primary hover:text-secondary transition-colors">
-                        <ExternalLink size={16} /> Demo
-                      </button>
+                      {project.githubUrl !== "#" ? (
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
+                          <Github size={16} /> Code
+                        </a>
+                      ) : (
+                        <button className="flex items-center gap-1.5 text-sm text-muted-foreground/50 cursor-not-allowed transition-colors" title="Code not available yet">
+                          <Github size={16} /> Code
+                        </button>
+                      )}
+                      
+                      {project.demoUrl !== "#" ? (
+                        <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-sm text-primary hover:text-secondary transition-colors">
+                          <ExternalLink size={16} /> Demo
+                        </a>
+                      ) : (
+                        <button className="flex items-center gap-1.5 text-sm text-primary/50 cursor-not-allowed transition-colors" title="Demo not available yet">
+                          <ExternalLink size={16} /> Demo
+                        </button>
+                      )}
                     </div>
                   </div>
                 </div>

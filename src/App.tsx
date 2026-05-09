@@ -11,6 +11,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <div className="paper-texture" aria-hidden="true" />
+      <div className="vignette-overlay" aria-hidden="true" />
       <Toaster />
       <Sonner />
       <BrowserRouter>

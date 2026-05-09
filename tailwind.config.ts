@@ -15,8 +15,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        display: ["Space Grotesk", "sans-serif"],
+        sans: ["Crimson Pro", "serif"],
+        heading: ["Cormorant Garamond", "serif"],
+        display: ["Cinzel", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

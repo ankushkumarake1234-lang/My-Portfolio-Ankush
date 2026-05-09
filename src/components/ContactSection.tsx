@@ -1,17 +1,52 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
-import { Mail, Phone, Linkedin, Github, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, Linkedin, Github, Send, MessageCircle, Loader2, CheckCircle2 } from "lucide-react";
 
 const ContactSection = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi Ankush,\n\nMy name is ${form.name}.\nEmail: ${form.email}\n\nMessage: \n${form.message}`;
-    const whatsappUrl = `https://wa.me/919508594092?text=${encodeURIComponent(text)}`;
-    window.open(whatsappUrl, "_blank");
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+
+    // Please completely follow the instructions in my message below to get your SCRIPT_URL
+    const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+    if (SCRIPT_URL === "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+      alert("Please replace the SCRIPT_URL placeholder with your deployed Google Apps Script URL to save to the sheet! Fallback to WhatsApp for now.");
+      const text = `Hi Ankush,\n\nMy name is ${form.name}.\nEmail: ${form.email}\n\nMessage: \n${form.message}`;
+      const whatsappUrl = `https://wa.me/919508594092?text=${encodeURIComponent(text)}`;
+      window.open(whatsappUrl, "_blank");
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        // We use mode: "no-cors" to avoid CORS issues with Google Apps Script
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form)
+      });
+      
+      // With no-cors, response is opaque. We assume it succeeds if it didn't throw an error.
+      setSubmitStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus("error");
+    } finally {
+      setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus("idle"), 5000);
+    }
   };
 
   return (
@@ -69,9 +104,22 @@ const ContactSection = () => {
                 className="w-full px-4 py-3 rounded-lg bg-muted border border-border focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all text-sm resize-none"
               />
             </div>
-            <button type="submit" className="glow-button flex items-center gap-2 text-primary-foreground w-full justify-center">
-              <Send size={18} /> Send Message
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className="glow-button flex items-center gap-2 text-primary-foreground w-full justify-center disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {isSubmitting ? (
+                <><Loader2 size={18} className="animate-spin" /> Sending...</>
+              ) : submitStatus === "success" ? (
+                <><CheckCircle2 size={18} /> Sent Successfully!</>
+              ) : (
+                <><Send size={18} /> Send Message</>
+              )}
             </button>
+            {submitStatus === "error" && (
+               <p className="text-red-500 text-sm text-center">Failed to send message. Please try again.</p>
+            )}
           </motion.form>
 
           {/* Contact info */}
